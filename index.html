@@ -2,39 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>js practice 01</title>
+    <title>ReactJS practice 01</title>
 </head>
 <body>
-    <form class="hidden" id="login-form">
-        <input 
-        required maxlength="15"
-        type="text" 
-        placeholder="what is your name?"/>
-        <button>Log In</button>
-    </form>
-    <h1 id="greeting" class="hidden"></h1>
-    <h2 id="clock">00:00</h2>
-    <form id="todo-form">
-        <input type="text" placeholder="Write a todo and press enter." required/>
-    </form>
-    <ul id="todo-list"></ul>
-    <div id="quotes">
-        <span></span><br>
-        <span></span>
-    </div>
-    <div id="weather">
-        <span></span><br>
-        <span></span>
-    </div>
-    <img id="bg"class="bgimg">
-    <script src="js/greetings.js"></script>
-    <script src="js/clock.js"></script>
-    <script src="js/quotes.js"></script>
-    <script src="js/background.js"></script>
-    <script src="js/todo.js"></script>
-    <script src="js/weather.js"></script>
+    <span>Total clicks : 0</span>
+    <button id="btn">click me</button>
 </body>
+<script>
+    let counter = 0;
+    const button = document.getElementById("btn");
+    const span = document.querySelector("span");
+    function handleclick(){
+        console.log("i have been clicked");
+        counter++;
+        span.innerText = `Total clicks : ${counter}`;
+    }
+    button.addEventListener("click", handleclick);
+</script>
 </html>
