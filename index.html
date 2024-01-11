@@ -14,21 +14,27 @@
 <script type="text/babel">
     function Btn(props){
         return(
-            <button style={{
-                backgroundColor:"tomato",
-                color:"white",
-                padding:"10px 20px",
-                border:0,
-                borderRadius:10,
-                fontSize: props.big ? 20 : 10,
-            }}>{props.text}</button>
+            <button 
+                onClick={props.changeValue}
+                style={{
+                    backgroundColor:"tomato",
+                    color:"white",
+                    padding:"10px 20px",
+                    border:0,
+                    borderRadius:10,
+            }}>
+            {props.text}
+            </button>
         );
     }
+    const MemoBtn = React.memo(Btn);
     function App(){
+        const [value, setValue] = React.useState("Save Changes");
+        const changeValue = () => setValue("Revert Changes");
         return(
             <div>
-                <Btn text="save changes" big={true}/>
-                <Btn text="continue" big={false}/>
+                <MemoBtn text={value} changeValue={changeValue} />
+                <MemoBtn text="continue" />
             </div>
         );
     }
