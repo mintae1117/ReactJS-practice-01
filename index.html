@@ -3,21 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>original js-practice-01 to compare with React js project</title>
+    <title>ReactJS practice 01</title>
 </head>
 <body>
-    <span>Total clicks : 0</span>
-    <button id="btn">click me</button>
+    <div id="root"></div>
 </body>
-<script>
-    let counter = 0;
-    const button = document.getElementById("btn");
-    const span = document.querySelector("span");
-    function handleclick(){
-        console.log("i have been clicked");
-        counter++;
-        span.innerText = `Total clicks : ${counter}`;
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    function Btn(props){
+        return(
+            <button style={{
+                backgroundColor:"tomato",
+                color:"white",
+                padding:"10px 20px",
+                border:0,
+                borderRadius:10,
+                fontSize: props.big ? 20 : 10,
+            }}>{props.text}</button>
+        );
     }
-    button.addEventListener("click", handleclick);
+    function App(){
+        return(
+            <div>
+                <Btn text="save changes" big={true}/>
+                <Btn text="continue" big={false}/>
+            </div>
+        );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App/>, root);
 </script>
 </html>
