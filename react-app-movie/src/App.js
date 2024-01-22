@@ -15,19 +15,4 @@ function App(){
   ]);
   return <RouterProvider router={router} />;
 };
-/*
-const App = () => {
-const router = createBrowserRouter([
-  {
-  path: "/",
-  element: <Home />,
-  },
-  {
-  path: "/detail",
-  element: <Detail />,
-  },
-]);
-return <RouterProvider router={router} />;
-};
-*/
 export default App;
