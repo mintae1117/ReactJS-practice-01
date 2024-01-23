@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import styles from "./Home.module.css";
 
 
 function Detail() {
@@ -19,9 +20,11 @@ function Detail() {
         getMovie();
     }, [id]);
     return (
-        <div>
+        <div className={styles.container}>
           {loading ? (
-            <h1>Loading...</h1>
+            <div className={styles.loader}>
+            <span>Loading...</span>
+            </div>
           ) : (
             <div>
                 <h2>{details.title}</h2>
